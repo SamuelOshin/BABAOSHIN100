@@ -13,7 +13,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <!-- Typed.js Library -->
@@ -40,11 +40,11 @@
     </div>
 
     <!-- Tribute Video Section -->
-    <section id="tribute-video" class="text-center py-5">
+    <section id="tribute-video" class="text-center py-3">
         <div class="container">
             <div id="message-box" class="d-none">
-                <h2 class="display-4 text-primary mb-3">Dear Grandpa,</h2>
-                <p class="lead mb-4">Your story inspires generations. Here’s to a century of love, wisdom, and joy!</p>
+                <h2 class="display-4 fw-bold text-primary mb-3">Dear Grandpa,</h2>
+                <p class="lead mb-4 ">Your story inspires generations. Here’s to a century of love, wisdom, and joy!</p>
             </div>
             <div id="video-box" class="d-none">
                 <video id="tribute-video-player" class="rounded shadow" width="80%" controls>
@@ -89,17 +89,19 @@
     <section id="gallery" class="py-5">
         <div class="container">
             <h2 class="text-center mb-4">Photo Gallery</h2>
-            <div class="row">
-                {% for item in gallery_items %}
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="{{ item.photo.cdn_url|default:'/static/img/babaoshin.jpg' }}" class="img-fluid rounded shadow" alt="{{ item.caption }}">
-                        <div class="card-body text-center">
-                            <p class="card-text">{{ item.caption }}</p>
+            <div class="scroll-container">
+                <div class="row flex-nowrap">
+                    {% for item in gallery_items %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{ item.photo.cdn_url|default:'/static/img/babaoshin.jpg' }}" class="img-fluid img-h rounded shadow" alt="{{ item.caption }}">
+                            <div class="card-body text-center">
+                                <p class="card-text">{{ item.caption }}</p>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
     </section>
@@ -107,6 +109,7 @@
     <section id="guestbook" class="py-5 bg-light">
         <div class="container">
             <h2 class="text-center mb-4">Guestbook</h2>
+            <p class="text-center"><em>Leave a message for Pa Taiwo Oshin</em></p>
             <form method="post" class="bg-white p-4 rounded shadow-sm">
                 {% csrf_token %}
                 <div class="mb-3">
@@ -150,6 +153,24 @@
     <!-- Footer -->
     <footer class="text-center py-3 bg-dark text-white">
         <p>&copy; 2025 | Designed with ❤️ by <em>Oshin Samuel</em></p>
+        <div class="socials">
+            <p>Connect with me</p>
+            <a href="https://www.facebook.com/bobbyysam" target="_blank" class="me-3">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/samuel-oshin-2903611a5/" target="_blank" class="me-3">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com/oshin_samuel" target="_blank" class="me-3">
+                <i class="fa-brands fa-square-x-twitter"></i>
+            </a>
+            <a href="https://wa.me/2349075904952" target="_blank" class="me-3">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://instagram.com/_bobbysam" target="_blank" class="me-3">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+        </div>
     </footer>
 
     <!-- Scripts -->
