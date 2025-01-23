@@ -8,6 +8,17 @@ class GalleryItem(models.Model):
 
     def __str__(self):
         return self.caption
+    
+    def save(self, *args, **kwargs):
+        # Check if the photo field has changed
+        if self.pk:
+            original = GalleryItem.objects.get(pk=self.pk)
+            if original.photo != self.photo and not self.photo:
+                self.photo = original.photo
+
+        super(GalleryItem, self).save(*args, **kwargs)
+    
+    
 
 class GuestMessage(models.Model):
     name = models.CharField(max_length=100)
