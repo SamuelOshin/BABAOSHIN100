@@ -370,4 +370,5 @@ socials a:hover {
 #guest-messages .card-text {
   overflow-y: auto;
   margin-bottom: 10px;
+  padding: 10px;
 }
