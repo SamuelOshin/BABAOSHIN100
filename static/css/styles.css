@@ -358,9 +358,17 @@ socials a:hover {
 }
 
 #guest-messages .card {
-  height: 200px;
+  height: 300px;
 }
 
 #guest-messages .card-body {
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#guest-messages .card-text {
+  overflow-y: auto;
+  margin-bottom: 10px;
 }
